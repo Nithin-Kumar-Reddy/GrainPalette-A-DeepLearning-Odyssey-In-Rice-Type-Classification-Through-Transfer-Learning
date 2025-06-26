@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Results Page</title>
+
+  <!-- Favicons -->
+  <link href="https://www.shutterstock.com/image-illustration/single-rice-grain-art-icon-260nw-1737196706.jpg" rel="icon">
+  <link href="https://www.shutterstock.com/image-illustration/single-rice-grain-art-icon-260nw-1737196706.jpg" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      color: #333;
+      background-image: url('https://rndnewsindia.com/wp-content/uploads/2023/02/opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__10__20191003-rice-guide-vicky-wasik-4-ce43a2f2ad014714a0d6abb7f70b5c27.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    header {
+      background: rgba(30, 136, 229, 0.9);
+      backdrop-filter: blur(8px);
+      padding: 15px 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo h1 {
+      color: #fff;
+      font-size: 28px;
+      margin: 0;
+    }
+
+    header .logo h1 a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    header .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+
+    header .navbar ul li a {
+      background-color: transparent;
+      color: #fff;
+      padding: 10px 18px;
+      font-weight: 500;
+      border-radius: 30px;
+      transition: 0.3s ease;
+      text-decoration: none;
+      border: 2px solid transparent;
+    }
+
+    header .navbar ul li a:hover {
+      background-color: #fff;
+      color: #1e88e5;
+      border-color: #fff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .centered-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 250px);
+      text-align: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .result-card {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 30px 25px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      max-width: 500px;
+      width: 90%;
+      font-weight: bold;
+    }
+
+    .result-card h2 {
+      font-size: 32px;
+      color: #1e88e5;
+      margin-bottom: 20px;
+    }
+
+    .result-card p {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .result-card button {
+      padding: 12px 25px;
+      background-color: #1e88e5;
+      border: none;
+      color: #fff;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .result-card button:hover {
+      background-color: #1565c0;
+    }
+
+    footer {
+      background: #212529;
+      color: #ddd;
+      padding: 50px 0;
+    }
+
+    footer h3,
+    footer h4 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer ul li {
+      margin-bottom: 10px;
+    }
+
+    footer ul li i {
+      margin-right: 10px;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      font-size: 14px;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1e88e5;
+      color: #fff;
+      border-radius: 50%;
+      padding: 10px;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-to-top:hover {
+      background: #1565c0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="logo">
+        <h1><a href="/"><span>Rice Type Classification</span></a></h1>
+      </div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/">About</a></li>
+          <li><a href="/">Testimonials</a></li>
+          <li><a href="/">Contact</a></li>
+          <li><a href="/details">Predict</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Results Section ======= -->
+  <main class="centered-section">
+    <div class="result-card">
+      <h2>Prediction Result</h2>
+      <p>Based on the image you provided, our AI model predicts:</p>
+      <p><strong>{{ prediction_text }}</strong></p>
+      <form action="/details" method="GET">
+        <button type="submit">Try Another Image</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div class="col-lg-4 col-md-6 footer-contact">
+          <h3>Rice</h3>
+          <p>
+            A108 Adam Street<br>
+            Pune, 535022<br>
+            India<br><br>
+            <strong>Phone:</strong> +91 55895 54885<br>
+            <strong>Email:</strong> info@example.com<br>
+          </p>
+        </div>
+
+        <div class="col-lg-4 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">About Us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Rice Classification</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">AI Consulting</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Supply Chain Tools</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Agri-Tech</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Mobile Integration</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; 2025 <strong><span>Rice</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="bi bi-arrow-up-short"></i></a>
+
+</body>
+
+</html>

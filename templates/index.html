@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Rice Type Detection</title>
+
+  <!-- Favicon -->
+  <link href="https://www.shutterstock.com/image-illustration/single-rice-grain-art-icon-260nw-1737196706.jpg" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../static/css/style.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    #header {
+      background-color: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar .nav-link {
+      color: #333;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link.active {
+      background-color: #1e88e5;
+      color: #fff !important;
+    }
+
+    .btn-get-started {
+      background-color: #1e88e5;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 25px;
+      transition: 0.3s;
+    }
+
+    .btn-get-started:hover {
+      background-color: #1565c0;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .testimonial-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    .testimonial-role {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      color: #333;
+    }
+
+    footer {
+      background: #212529;
+      color: #ddd;
+      padding: 40px 0;
+    }
+
+    footer a {
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    .footer-cols {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-cols div {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-cols h5 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .back-to-top {
+      background: #1e88e5;
+      color: #fff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-to-top:hover {
+      background: #1565c0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="sticky-top py-3">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="text-dark m-0"><a href="/" class="text-decoration-none">Rice Type Detection</a></h1>
+      <nav class="navbar">
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/details">Predict</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+   <!-- Main Content -->
+  <main id="main">
+
+    <!-- About Section with Welcome Card -->
+    <section id="about" class="about py-5" style="background-color: transparent;">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Welcome Card -->
+          <div class="col-lg-6 d-flex justify-content-center mb-4 mb-lg-0">
+            <div class="card text-center p-5 w-100" style="background-color: rgba(255, 255, 255, 0.65); backdrop-filter: blur(8px); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+              <h1 class="text-dark">Welcome to Rice Type Detection</h1>
+              <h2 class="text-muted fs-5">This model can detect rice type based on rice images.</h2>
+              <a href="/details" class="btn-get-started mt-3">Predict</a>
+            </div>
+          </div>
+
+          <!-- About the Model Card -->
+          <div class="col-lg-6">
+            <div class="card text-center p-5 w-100" style="background-color: rgba(255, 255, 255, 0.65); backdrop-filter: blur(8px); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+              <h3>About the Rice Type Classification Model</h3>
+              <p>This model is built using a Convolutional Neural Network trained on labeled images of rice grains. It predicts the rice type based on the image.</p>
+              <ul class="features list-unstyled">
+                <li><strong>Accuracy:</strong> 97%</li>
+                <li><strong>Types Detected:</strong> 5 rice varieties</li>
+                <li><strong>Dataset:</strong> Kaggle dataset with labeled images</li>
+                <li><strong>Architecture:</strong> MobileNetV4 with Transfer Learning</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <!-- Stylish Testimonials Section -->
+<section id="testimonials" class="testimonials py-5 bg-light">
+  <style>
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .testimonial-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    .testimonial-role {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      color: #333;
+    }
+  </style>
+
+  <div class="container">
+   <div class="text-center mb-5">
+  <h2 class="fw-bold" style="color: white; font-weight: 700;">What People Say</h2>
+  <p style="color: white; font-weight: 600;">Real feedback from real users who’ve experienced our model</p>
+</div>
+
+
+    <div class="row g-4 justify-content-center">
+      <!-- Testimonial Card 1 -->
+      <div class="col-md-4">
+        <div class="testimonial-card text-center">
+          <img src="/static/img/testimonials/testimonials-1.jpg" alt="Saul Goodman" class="testimonial-img">
+          <h5 class="testimonial-name">Saul Goodman</h5>
+          <p class="testimonial-role">Supplier</p>
+          <p class="testimonial-quote">"This rice type classification model is useful for me as I can verify the type of rice sent by suppliers."</p>
+        </div>
+      </div>
+
+      <!-- Testimonial Card 2 -->
+      <div class="col-md-4">
+        <div class="testimonial-card text-center">
+          <img src="/static/img/testimonials/testimonials-2.jpg" alt="Sara Wilsson" class="testimonial-img">
+          <h5 class="testimonial-name">Sara Wilsson</h5>
+          <p class="testimonial-role">Farmer</p>
+          <p class="testimonial-quote">"I use this model to classify rice types in different parts of my field."</p>
+        </div>
+      </div>
+
+      <!-- Testimonial Card 3 -->
+      <div class="col-md-4">
+        <div class="testimonial-card text-center">
+          <img src="/static/img/testimonials/testimonials-3.jpg" alt="Jena Karlis" class="testimonial-img">
+          <h5 class="testimonial-name">Jena Karlis</h5>
+          <p class="testimonial-role">Consumer Advocate</p>
+          <p class="testimonial-quote">"This model reduces the risk of adulterated rice in the market."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact py-5 bg-light">
+      <div class="container">
+        <div class="section-title text-center mb-5">
+          <h2>Contact Us</h2>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-4 col-md-6">
+            <div class="info-box">
+              <i class="bx bx-map fs-3"></i>
+              <h4>Address</h4>
+              <p>A108 Adam Street, Pune, India</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="info-box">
+              <i class="bx bx-envelope fs-3"></i>
+              <h4>Email</h4>
+              <p>info@example.com<br>contact@example.com</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="info-box">
+              <i class="bx bx-phone-call fs-3"></i>
+              <h4>Call</h4>
+              <p>+91 55892 55488<br>+91 66782 25444</p>
+            </div>
+          </div>
+        </div>
+
+        <form action="forms/contact.php" method="post" class="php-email-form mt-4">
+          <div class="row">
+            <div class="col-md-6 form-group mb-3">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-6 form-group mb-3">
+              <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group mb-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+          </div>
+          <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+    <!-- Add About/Contact Sections as needed -->
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container footer-cols">
+      <div>
+        <h5>Rice</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Basmati</a></li>
+          <li><a href="#">Jasmine</a></li>
+          <li><a href="#">Arborio</a></li>
+          <li><a href="#">Brown</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Useful Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Predict</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Our Services</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Rice Classification</a></li>
+          <li><a href="#">AI Integration</a></li>
+          <li><a href="#">Supply Chain</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <p>&copy; 2025 <strong>Rice Type Detection</strong>. All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Scripts (no unused vendors) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
